@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "主页";
+}
+<script src="../../Scripts/home.js"></script>
+@*<h2>@ViewBag.Message</h2>*@
+@*<p>
+    若要了解有关 ASP.NET MVC 的更多信息，请访问 <a href="http://asp.net/mvc" title="ASP.NET MVC 网站">http://asp.net/mvc</a>。
+</p>*@
+<div>
+    <div class="pane-left">
+        <div class="div-login">
+            @if (Request.IsAuthenticated)
+            {
+                <p>用户信息</p>  
+                <p>欢迎，<a href="#">@User.Identity.Name</a></p> 
+                @Html.ActionLink("个人中心", "Index", "InfoCenter")
+                @Html.ActionLink("注销", "LogOff", "Account")
+            }
+            else
+            { 
+                <p>用户登录</p>
+                <p>
+                    <input id="txtUserName" type="text" class="form-control" placeholder="用户名" />
+                </p>
+                <p>
+                    <input id="pwdPassword" type="password" class="form-control" placeholder="密码" />
+                </p>
+                <p>记住我<input id="radRememberMe" type="checkbox" /><a href="#" style="float: right;">找回密码</a></p>
+                <p>
+                    <input id="txtRandomCode" type="text" class="form-control" placeholder="验证码" style="width: 80px; float: left;" /><img id="random-code" style="cursor: pointer; margin-left: 10px;" src="/Account/GetRandomCode" title="看不清？请点我" />
+                </p>
+                <p>
+                    <input type="button" id="btn-logon" value="登录" class="btn btn-primary" /><a href="/account/register" class="btn btn-default" role="button" style="float: right;">注册</a>
+                </p>
+            }
+
+
+        </div>
+
+    </div>
+    <div class="pane-right">
+        right
+    </div>
+</div>
