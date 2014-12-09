@@ -29,7 +29,7 @@ namespace YangGuangTongXing.Controllers
             {
                 return -2;
             }
-            if (Membership.ValidateUser(userName, password))
+            if (System.Web.Security.Membership.ValidateUser(userName, password))
             {
                 FormsAuthentication.SetAuthCookie(userName, rememberMe);
                 return 1;
@@ -114,7 +114,7 @@ namespace YangGuangTongXing.Controllers
             {
                 // 尝试注册用户
                 MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
+                System.Web.Security.Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
@@ -155,7 +155,7 @@ namespace YangGuangTongXing.Controllers
                 bool changePasswordSucceeded;
                 try
                 {
-                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
+                    MembershipUser currentUser = System.Web.Security.Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
                     changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
                 }
                 catch (Exception)

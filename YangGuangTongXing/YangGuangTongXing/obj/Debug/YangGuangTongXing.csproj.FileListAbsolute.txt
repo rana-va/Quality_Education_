@@ -67,3 +67,6 @@ F:\YangGuangXingDong\YangGuangTongXing\YangGuangTongXing\bin\zh-Hans\System.Web.
 F:\YangGuangXingDong\YangGuangTongXing\YangGuangTongXing\obj\Debug\YangGuangTongXing.csprojResolveAssemblyReference.cache
 F:\YangGuangXingDong\YangGuangTongXing\YangGuangTongXing\obj\Debug\YangGuangTongXing.dll
 F:\YangGuangXingDong\YangGuangTongXing\YangGuangTongXing\obj\Debug\YangGuangTongXing.pdb
+F:\YangGuangXingDong\YangGuangTongXing\YangGuangTongXing\bin\Newtonsoft.Json.dll
+F:\YangGuangXingDong\YangGuangTongXing\YangGuangTongXing\bin\Newtonsoft.Json.pdb
+F:\YangGuangXingDong\YangGuangTongXing\YangGuangTongXing\bin\Newtonsoft.Json.xml

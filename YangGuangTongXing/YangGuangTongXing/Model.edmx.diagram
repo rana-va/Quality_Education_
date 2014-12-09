@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bdb238053bc44c8c8a202d0d58c11496" Name="关系图1" ZoomLevel="69">
+        <EntityTypeShape EntityType="YangGuangTongXingModel.Application" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YangGuangTongXingModel.Article" Width="1.5" PointX="10.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YangGuangTongXingModel.ArticleType" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YangGuangTongXingModel.Membership" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YangGuangTongXingModel.Profile" Width="1.5" PointX="7.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YangGuangTongXingModel.Role" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="YangGuangTongXingModel.User" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="YangGuangTongXingModel.MembershipApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="YangGuangTongXingModel.RoleApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="YangGuangTongXingModel.UserApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="YangGuangTongXingModel.FK_Article_To_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="YangGuangTongXingModel.FK_Article_To_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="YangGuangTongXingModel.MembershipUser" ManuallyRouted="false" />
+        <AssociationConnector Association="YangGuangTongXingModel.UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="YangGuangTongXingModel.UsersInRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="YangGuangTongXingModel.Announcement" Width="1.5" PointX="4.7688796318922559" PointY="7.2046246413163022" />
+        <AssociationConnector Association="YangGuangTongXingModel.FK_Announcement_To_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

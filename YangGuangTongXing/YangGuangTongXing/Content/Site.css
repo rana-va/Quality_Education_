@@ -135,3 +135,15 @@ a:hover {
     padding:10px;
     height:255px;
 }
+
+/*other page*/
+.pane-left-common {
+    width:190px;
+    float:left;
+    border:1px solid #f00;
+}
+.pane-right-common {
+    width:760px;
+    float:right;
+    border:1px solid #f00;
+}

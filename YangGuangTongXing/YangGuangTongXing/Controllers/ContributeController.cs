@@ -10,10 +10,12 @@ namespace YangGuangTongXing.Controllers
     {
         //
         // GET: /Contribute/
+        YangGuangTongXingEntities db = new YangGuangTongXingEntities();
 
         public ActionResult Index()
         {
-            return View();
+            Announcement ann = db.Announcements.Where(a => a.Remark.Contains("捐助流程")).FirstOrDefault();
+            return View(ann);
         }
 
     }
