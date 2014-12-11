@@ -1,58 +1,112 @@
 ﻿@model YangGuangTongXing.Announcement
-
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="../../ueditor/ueditor.config.js"></script>
+<script src="../../ueditor/ueditor.all.js"></script>
+<script src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Announcement</legend>
+<div>
+    <h2>编辑: @Model.Remark </h2>
+    <script type="text/plain" id="editor" style="height: 240px;">
+    </script>
+    <script type="text/javascript">
+        //实例化编辑器
+        //var ue = UE.getEditor('topicEditor', {
+        //    toolbars: [
+        //        ['source', 'undo', 'redo', 'snapscreen', 'emotion', 'simpleupload']
+        //    ],
+        //    //imagePathFormat: "/UEditor/imageUp",
+        //    autoHeightEnabled: true,
+        //    autoFloatEnabled: true
+        //});
+        var ue = UE.getEditor('editor');
+        setTimeout("initEditor()", 1000);
 
-        @Html.HiddenFor(model => model.AnnouncementId)
+        function initEditor() {
+            document.getElementById("hd-content").value;
+            ue.setContent(document.getElementById("hd-content").value);
+        }
+    </script>
+    <input id="hd-id" type="hidden" value="@Model.AnnouncementId"/>
+    <input id="hd-content" type="hidden" value="@Model.Content" />
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Content)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Content)
-            @Html.ValidationMessageFor(model => model.Content)
-        </div>
+    <a href="#" id="save-announcement" class="btn btn-block btn-lg btn-primary" style="width: 100px;">保存</a>
+    <script>
+        $("#save-announcement").click(function () {
+            if (!UE.getEditor('editor').hasContents()) {
+                alert("内容不能为空！");
+                return;
+            }
+            var content = UE.getEditor('editor').getContent();
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Remark)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Remark)
-            @Html.ValidationMessageFor(model => model.Remark)
-        </div>
+            id = document.getElementById("hd-id").value;
+            content = escape(content);
+            $.ajax({
+                type: "POST",
+                url: '/Announcement/SaveAnnouncement',
+                data: { id: id, content: content },
+                success: function (data) {
+                    if (data.toLowerCase() == "true") {
+                        alert("保存成功！");
+                        history.go(-2);
+                    }
+                },
+                error: function () {
+                    alert("保存失败！");
+                }
+            });
+        });
+    </script>
+    @*@using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Announcement</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UpdatedBy, "User")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("UpdatedBy", String.Empty)
-            @Html.ValidationMessageFor(model => model.UpdatedBy)
-        </div>
+            @Html.HiddenFor(model => model.AnnouncementId)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UpdatedDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UpdatedDate)
-            @Html.ValidationMessageFor(model => model.UpdatedDate)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Content)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Content)
+                @Html.ValidationMessageFor(model => model.Content)
+            </div>
 
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Remark)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Remark)
+                @Html.ValidationMessageFor(model => model.Remark)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UpdatedBy, "User")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("UpdatedBy", String.Empty)
+                @Html.ValidationMessageFor(model => model.UpdatedBy)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UpdatedDate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.UpdatedDate)
+                @Html.ValidationMessageFor(model => model.UpdatedDate)
+            </div>
+
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    }*@
+</div>
 
 <div>
     @Html.ActionLink("Back to List", "Index")

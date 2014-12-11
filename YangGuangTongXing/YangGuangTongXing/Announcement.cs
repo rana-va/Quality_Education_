@@ -20,6 +20,6 @@ namespace YangGuangTongXing
         public Nullable<System.Guid> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual User UpdatedUser { get; set; }
     }
 }

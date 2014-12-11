@@ -528,7 +528,7 @@
           <Property Type="String" Name="Remark" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="UpdatedBy" />
           <Property Type="DateTime" Name="UpdatedDate" Precision="3" />
-          <NavigationProperty Name="User" Relationship="YangGuangTongXingModel.FK_Announcement_To_Users" FromRole="Announcement" ToRole="User" />
+          <NavigationProperty Name="UpdatedUser" Relationship="YangGuangTongXingModel.FK_Announcement_To_Users" FromRole="Announcement" ToRole="User" />
         </EntityType>
         <Association Name="FK_Announcement_To_Users">
           <End Type="YangGuangTongXingModel.User" Role="User" Multiplicity="0..1" />

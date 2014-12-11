@@ -62,8 +62,8 @@
     </div>
 </div>
 <p>
-    @if (User.IsInRole("admin"))
+    @if (User.IsInRole("editor"))
     {
-        @Html.ActionLink("编辑","Edit","Announcement",new { id = Model.AnnouncementId },null)
+        @Html.ActionLink("编辑", "Edit", "Announcement", new { id = Model.AnnouncementId }, null)
     }
 </p>

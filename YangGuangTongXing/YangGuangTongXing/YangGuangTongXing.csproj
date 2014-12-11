@@ -617,6 +617,7 @@
     <Content Include="Views\Announcement\Create.cshtml" />
     <Content Include="Views\Announcement\Edit.cshtml" />
     <Content Include="Views\Announcement\Delete.cshtml" />
+    <Content Include="Views\Shared\_UEditorPane.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
