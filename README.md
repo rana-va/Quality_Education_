@@ -11,4 +11,4 @@
 
 ## Project roadmap
 
-![Roadmap](./images/roadmap.jpeg)
+![Roadmap](./images/roadmap.jpg)
